@@ -1,0 +1,19 @@
+.freq-select {
+  padding: 10px 16px; background: var(--glass-bg); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.85rem;
+}
+.freq-select option { background: var(--bg-secondary); }
+.nomina-table-wrap { padding: 0; overflow: hidden; }
+.neto-cell {
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem;
+  background: var(--gradient-main); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.success-toast {
+  position: fixed; bottom: 30px; right: 30px; z-index: 999;
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 24px; border-radius: var(--radius-md);
+  background: var(--success); color: white; font-weight: 600;
+  animation: bounceIn 0.5s var(--ease-spring);
+  box-shadow: 0 10px 30px rgba(0,184,148,0.3);
+}

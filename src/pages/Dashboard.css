@@ -1,0 +1,55 @@
+.dashboard-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; }
+.dash-chart, .dash-activity, .dash-employees { padding: 24px; }
+.dash-chart h3, .dash-activity h3, .dash-employees h3 {
+  font-size: 1rem; margin-bottom: 20px;
+  background: var(--gradient-main); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.chart-bars { display: flex; flex-direction: column; gap: 14px; }
+.chart-bar-row {
+  display: grid; grid-template-columns: 120px 1fr 100px; align-items: center; gap: 12px;
+  animation: slideInLeft 0.4s var(--ease-out) both;
+}
+.bar-label { font-size: 0.8rem; color: var(--text-secondary); }
+.bar-track { height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+.bar-fill {
+  height: 100%; border-radius: 4px;
+  background: var(--gradient-main);
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+.bar-value { font-size: 0.8rem; font-weight: 600; color: var(--text-primary); text-align: right; }
+
+.activity-list { display: flex; flex-direction: column; gap: 12px; }
+.activity-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  animation: slideUp 0.4s var(--ease-out) both;
+}
+.activity-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-1); margin-top: 6px; flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(108,92,231,0.4);
+}
+.activity-info { display: flex; flex-direction: column; }
+.activity-text { font-size: 0.85rem; color: var(--text-primary); }
+.activity-date { font-size: 0.7rem; color: var(--text-tertiary); }
+.empty-text { color: var(--text-tertiary); font-size: 0.85rem; font-style: italic; }
+
+.dept-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.dept-chip {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 20px;
+  background: rgba(108,92,231,0.1); border: 1px solid rgba(108,92,231,0.2);
+  transition: all var(--transition-normal);
+  animation: scaleIn 0.4s var(--ease-spring) both;
+}
+.dept-chip:hover { background: rgba(108,92,231,0.2); transform: scale(1.05); }
+.dept-name { font-size: 0.8rem; color: var(--text-primary); }
+.dept-count {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--gradient-main); color: white;
+  font-size: 0.7rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+@media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } }

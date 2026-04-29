@@ -1,28 +1,16 @@
-# Sistema de Planilla Elsa
+# React + Vite
 
-Plataforma moderna de Recursos Humanos y Nómina con cálculos automatizados de ley hondureña.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Características
-- Cálculo automatizado de IHSS, ISR, RAP
-- Horas extras, recargos nocturnos, feriados
-- Liquidaciones (despido injustificado / renuncia)
-- Múltiples monedas (HNL, USD, EUR)
-- Generación de recibos y finiquitos en PDF
-- Fichas de empleado con foto de perfil
-- Efectos visuales: 3D, glassmorphism, partículas animadas
+Currently, two official plugins are available:
 
-## Ejecutar
-```bash
-npm install
-npm run dev
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Credenciales
-- Usuario: `admin`
-- Contraseña: `admin2026`
+## React Compiler
 
-## Tech Stack
-- React + Vite
-- Vanilla CSS (glassmorphism, 3D transforms)
-- jsPDF para generación de PDF
-- localStorage para persistencia
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

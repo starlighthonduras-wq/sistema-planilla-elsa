@@ -1,0 +1,4 @@
+.config-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.config-section { padding: 24px; }
+.config-section h3 { margin-bottom: 16px; font-size: 1rem; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+@media (max-width: 768px) { .config-grid { grid-template-columns: 1fr; } }
