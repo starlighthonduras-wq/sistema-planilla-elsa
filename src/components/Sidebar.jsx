@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, Calculator, FileText, Scale, BarChart3, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, Calculator, FileText, Scale, BarChart3, Settings, LogOut, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import './Sidebar.css';
 
@@ -13,31 +13,42 @@ const navItems = [
   { path: '/configuracion', icon: Settings, label: 'Configuración' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   const { logout } = useApp();
+
+  const handleNavClick = () => {
+    if (window.innerWidth <= 768) onClose?.();
+  };
+
   return (
-    <aside className="sidebar">
-      <div className="sidebar-logo">
-        <div className="logo-icon">PE</div>
-        <div className="logo-text">
-          <span className="logo-main">Planilla</span>
-          <span className="logo-sub">Elsa</span>
+    <>
+      {isOpen && <div className="sidebar-overlay" onClick={onClose} />}
+      <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
+        <div className="sidebar-logo">
+          <div className="logo-icon">PE</div>
+          <div className="logo-text">
+            <span className="logo-main">Planilla</span>
+            <span className="logo-sub">Elsa</span>
+          </div>
+          <button className="sidebar-close-btn" onClick={onClose}>
+            <X size={20} />
+          </button>
         </div>
-      </div>
-      <nav className="sidebar-nav">
-        {navItems.map(item => (
-          <NavLink key={item.path} to={item.path} end={item.path==='/'} className={({ isActive }) => `nav-item ${isActive?'active':''}`}>
-            <item.icon size={20} />
-            <span>{item.label}</span>
-            <div className="nav-indicator"></div>
-          </NavLink>
-        ))}
-      </nav>
-      <div className="sidebar-footer">
-        <button className="nav-item logout-btn" onClick={logout}>
-          <LogOut size={20} /><span>Cerrar Sesión</span>
-        </button>
-      </div>
-    </aside>
+        <nav className="sidebar-nav">
+          {navItems.map(item => (
+            <NavLink key={item.path} to={item.path} end={item.path==='/'} className={({ isActive }) => `nav-item ${isActive?'active':''}`} onClick={handleNavClick}>
+              <item.icon size={18} />
+              <span>{item.label}</span>
+              <div className="nav-indicator"></div>
+            </NavLink>
+          ))}
+        </nav>
+        <div className="sidebar-footer">
+          <button className="nav-item logout-btn" onClick={() => { logout(); handleNavClick(); }}>
+            <LogOut size={18} /><span>Cerrar Sesión</span>
+          </button>
+        </div>
+      </aside>
+    </>
   );
 }

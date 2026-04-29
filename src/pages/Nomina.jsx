@@ -35,23 +35,23 @@ export default function Nomina() {
 
   return (
     <div className="page-content">
-      <div className="page-header flex-between">
-        <div><h1>Nómina</h1><p>Cálculo y procesamiento de nómina</p></div>
-        <div className="flex-center gap-12">
+      <div className="page-header">
+        <h1>Nómina</h1><p>Cálculo y procesamiento de nómina</p>
+        <div className="nomina-controls">
           <select className="freq-select" value={frecuencia} onChange={e => setFrecuencia(e.target.value)}>
             <option value="semanal">Semanal</option>
             <option value="catorcenal">Catorcenal</option>
             <option value="quincenal">Quincenal</option>
             <option value="mensual">Mensual</option>
           </select>
-          <button className="btn btn-primary" onClick={calcular}><Calculator size={18}/>Calcular Nómina</button>
+          <button className="btn btn-primary" onClick={calcular}><Calculator size={16}/>Calcular</button>
         </div>
       </div>
 
       {resultados.length > 0 && (
         <>
           <div className="nomina-table-wrap glass-panel" style={{animation:'slideUp 0.5s ease'}}>
-            <div style={{overflowX:'auto'}}>
+            <div className="nomina-scroll-wrap">
               <table className="data-table">
                 <thead>
                   <tr>

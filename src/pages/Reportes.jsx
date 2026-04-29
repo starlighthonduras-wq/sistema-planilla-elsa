@@ -13,7 +13,7 @@ export default function Reportes() {
       <div className="glass-panel report-section">
         <h3><FileText size={20}/> Historial de Nóminas</h3>
         {nominas.length === 0 ? <p className="empty-text">No hay nóminas procesadas aún.</p> : (
-          <div style={{overflowX:'auto'}}>
+          <div className="report-table-wrap">
             <table className="data-table">
               <thead><tr><th>Fecha</th><th>Empleado</th><th>Cargo</th><th>Total Ing.</th><th>Total Ded.</th><th>Neto</th></tr></thead>
               <tbody>
@@ -36,7 +36,7 @@ export default function Reportes() {
       <div className="glass-panel report-section mt-24">
         <h3><FileText size={20}/> Historial de Liquidaciones</h3>
         {liquidaciones.length === 0 ? <p className="empty-text">No hay liquidaciones registradas aún.</p> : (
-          <div style={{overflowX:'auto'}}>
+          <div className="report-table-wrap">
             <table className="data-table">
               <thead><tr><th>Fecha</th><th>Empleado</th><th>Tipo</th><th>Antigüedad</th><th>Total</th></tr></thead>
               <tbody>

@@ -541,13 +541,63 @@ ul, ol {
 @media (max-width: 768px) {
   :root {
     --sidebar-width: 0px;
+    --navbar-height: 52px;
   }
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
-  }
+
+  html { font-size: 14px; }
+
+  .grid-2 { grid-template-columns: 1fr; gap: 10px; }
+  .grid-3 { grid-template-columns: 1fr; gap: 10px; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
   .page-content {
-    padding: calc(var(--navbar-height) + 16px) 16px 16px;
+    padding: calc(var(--navbar-height) + 12px) 12px 12px;
   }
+
+  .page-header { margin-bottom: 14px; }
+  .page-header h1 { font-size: 1.3rem; }
+  .page-header p { font-size: 0.8rem; }
+
+  /* Compact glass cards */
+  .glass-card, .glass-panel { border-radius: var(--radius-md); }
+  .glass-card:hover { transform: none; }
+
+  /* Compact buttons */
+  .btn { padding: 8px 14px; font-size: 0.8rem; gap: 6px; }
+  .btn-icon { width: 34px; height: 34px; }
+
+  /* Compact inputs */
+  .input-group { margin-bottom: 0.7rem; }
+  .input-group label { font-size: 0.72rem; margin-bottom: 4px; }
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    padding: 9px 12px; font-size: 0.82rem;
+  }
+
+  /* Compact tables */
+  .data-table thead th {
+    padding: 8px 10px; font-size: 0.65rem;
+  }
+  .data-table tbody td {
+    padding: 8px 10px; font-size: 0.78rem;
+  }
+
+  /* Smaller badges */
+  .badge { padding: 3px 8px; font-size: 0.6rem; }
+
+  /* Utility spacing */
+  .gap-16 { gap: 10px; }
+  .gap-24 { gap: 14px; }
+  .mt-16 { margin-top: 10px; }
+  .mt-24 { margin-top: 14px; }
+  .mb-16 { margin-bottom: 10px; }
+  .mb-24 { margin-bottom: 14px; }
+}
+
+@media (max-width: 420px) {
+  .grid-4 { grid-template-columns: 1fr; gap: 8px; }
+  .page-content { padding: calc(var(--navbar-height) + 8px) 8px 8px; }
 }
 
 /* ---- MISC ---- */

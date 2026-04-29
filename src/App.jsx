@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useApp } from './context/AppContext';
 import LoadingScreen from './components/LoadingScreen';
@@ -16,6 +17,7 @@ import Configuracion from './pages/Configuracion';
 
 export default function App() {
   const { isAuthenticated, loading, setLoading } = useApp();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   if (loading) return <LoadingScreen onFinish={() => setLoading(false)} />;
 
@@ -24,9 +26,9 @@ export default function App() {
   return (
     <div className="app-layout">
       <LiveBackground />
-      <Sidebar />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="main-content">
-        <Navbar />
+        <Navbar onMenuToggle={() => setSidebarOpen(prev => !prev)} />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/empleados" element={<Empleados />} />

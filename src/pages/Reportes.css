@@ -1,7 +1,14 @@
-.report-section { padding: 24px; }
+.report-section { padding: 20px; }
 .report-section h3 {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
   background: var(--gradient-main); -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; background-clip: text;
 }
 .report-section h3 svg { color: var(--accent-1); }
+.report-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.report-table-wrap .data-table { min-width: 600px; }
+
+@media (max-width: 768px) {
+  .report-section { padding: 14px; }
+  .report-section h3 { font-size: 0.85rem; margin-bottom: 10px; }
+}

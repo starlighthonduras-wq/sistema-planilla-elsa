@@ -2,7 +2,7 @@
   position: relative; overflow: hidden;
   background: var(--glass-bg); backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
-  padding: 20px; display: flex; align-items: center; gap: 16px;
+  padding: 16px; display: flex; align-items: center; gap: 12px;
   transition: all var(--transition-normal);
   animation: slideUp 0.5s var(--ease-out) both;
 }
@@ -12,7 +12,7 @@
   border-color: var(--glass-border-hover);
 }
 .kpi-icon-wrap {
-  width: 48px; height: 48px; border-radius: 14px;
+  width: 42px; height: 42px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   color: white; flex-shrink: 0;
 }
@@ -21,17 +21,27 @@
 .kpi-pink .kpi-icon-wrap { background: linear-gradient(135deg, #fd79a8, #e17055); }
 .kpi-gold .kpi-icon-wrap { background: linear-gradient(135deg, #f39c12, #fdcb6e); }
 
-.kpi-info { display: flex; flex-direction: column; }
-.kpi-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.03em; font-weight: 500; }
-.kpi-value { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
-.kpi-sub { font-size: 0.75rem; color: var(--success); font-weight: 500; }
+.kpi-info { display: flex; flex-direction: column; min-width: 0; }
+.kpi-label { font-size: 0.68rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.03em; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kpi-value { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+.kpi-sub { font-size: 0.7rem; color: var(--success); font-weight: 500; }
 
 .kpi-glow {
   position: absolute; top: -50%; right: -30%;
-  width: 100px; height: 100px; border-radius: 50%;
+  width: 80px; height: 80px; border-radius: 50%;
   opacity: 0.08; pointer-events: none;
 }
 .kpi-purple .kpi-glow { background: #6c5ce7; }
 .kpi-teal .kpi-glow { background: #00cec9; }
 .kpi-pink .kpi-glow { background: #fd79a8; }
 .kpi-gold .kpi-glow { background: #f39c12; }
+
+@media (max-width: 768px) {
+  .kpi-card { padding: 12px; gap: 10px; }
+  .kpi-card:hover { transform: none; box-shadow: none; }
+  .kpi-icon-wrap { width: 36px; height: 36px; border-radius: 10px; }
+  .kpi-icon-wrap svg { width: 18px; height: 18px; }
+  .kpi-value { font-size: 1.1rem; }
+  .kpi-label { font-size: 0.6rem; }
+  .kpi-sub { font-size: 0.6rem; }
+}

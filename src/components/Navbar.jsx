@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Bell, Search, User } from 'lucide-react';
+import { Bell, Search, User, Menu } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import './Navbar.css';
 
-export default function Navbar() {
+export default function Navbar({ onMenuToggle }) {
   const { logout } = useApp();
   const [time, setTime] = useState(new Date());
   const [showProfile, setShowProfile] = useState(false);
@@ -16,21 +16,24 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
+        <button className="navbar-hamburger" onClick={onMenuToggle}>
+          <Menu size={22} />
+        </button>
         <div className="navbar-search">
-          <Search size={18} />
-          <input type="text" placeholder="Buscar empleado, reporte..." />
+          <Search size={16} />
+          <input type="text" placeholder="Buscar..." />
         </div>
       </div>
       <div className="navbar-right">
         <span className="navbar-clock">{time.toLocaleTimeString('es-HN', { hour:'2-digit', minute:'2-digit' })}</span>
         <span className="navbar-date">{time.toLocaleDateString('es-HN', { weekday:'short', day:'numeric', month:'short' })}</span>
         <button className="btn-icon navbar-bell">
-          <Bell size={18} />
+          <Bell size={16} />
           <span className="bell-badge">3</span>
         </button>
         <div className="navbar-profile" onClick={() => setShowProfile(!showProfile)}>
-          <div className="profile-avatar"><User size={18} /></div>
-          <span>Admin</span>
+          <div className="profile-avatar"><User size={16} /></div>
+          <span className="navbar-profile-name">Admin</span>
           {showProfile && (
             <div className="profile-dropdown">
               <button onClick={logout}>Cerrar Sesión</button>
